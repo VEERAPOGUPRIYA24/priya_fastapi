@@ -1,17 +1,42 @@
 from pydantic import BaseModel
 
 
+# ---------------- MOBILE SCHEMAS ----------------
+
 class MobileCreate(BaseModel):
     brand: str
     model: str
-    ram: str
-    storage: str
+    ram: int
+    storage: int
     price: float
 
 
 class MobileResponse(MobileCreate):
     id: int
 
-    model_config = {
-        "from_attributes": True
-    }
+    class Config:
+        from_attributes = True
+
+
+# ---------------- USER SCHEMAS ----------------
+
+class UserCreate(BaseModel):
+    username: str
+    email: str
+    password: str
+    role: str      # admin / dev / intern
+
+
+class UserLogin(BaseModel):
+    email: str
+    password: str
+
+
+class UserResponse(BaseModel):
+    id: int
+    username: str
+    email: str
+    role: str
+
+    class Config:
+        from_attributes = True
