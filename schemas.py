@@ -6,8 +6,8 @@ from pydantic import BaseModel
 class MobileCreate(BaseModel):
     brand: str
     model: str
-    ram: int
-    storage: int
+    ram: str
+    storage: str
     price: float
 
 
@@ -23,13 +23,13 @@ class MobileResponse(MobileCreate):
 class UserCreate(BaseModel):
     username: str
     email: str
-    password: str
+    hashed_password: str
     role: str      # admin / dev / intern
 
 
 class UserLogin(BaseModel):
     email: str
-    password: str
+    hashed_password: str
 
 
 class UserResponse(BaseModel):

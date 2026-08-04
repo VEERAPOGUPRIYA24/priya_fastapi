@@ -12,8 +12,8 @@ class Mobile(Base):
     brand = Column(String(100), nullable=False)
     model = Column(String(100), nullable=False)
 
-    ram = Column(Integer, nullable=False)
-    storage = Column(Integer, nullable=False)
+    ram = Column((String(20)), nullable=False)
+    storage = Column((String(20)), nullable=False)
 
     price = Column(Float, nullable=False)
 
