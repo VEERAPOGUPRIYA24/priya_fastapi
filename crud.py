@@ -97,7 +97,7 @@ def create_user(user: schemas.UserCreate, db: Session):
 
     # Generate hashed password using salt
     hashed_password = bcrypt.hashpw(
-        user.password.encode(),
+        user.hashed_password.encode(),
         bcrypt.gensalt()
     ).decode()
 
@@ -139,7 +139,7 @@ def validate_user(
 
 
     password_check = bcrypt.checkpw(
-        user.password.encode(),
+        user.hashed_password.encode(),
         user_exist.hashed_password.encode()
     )
 
